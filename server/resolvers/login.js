@@ -11,14 +11,14 @@ const login = async (_, { input }) => {
     throw new AuthenticationError("User not found");
   }
 
-  const validPassword = user.isCorrectPassword(password);
+  const validPassword = await user.isCorrectPassword(password);
 
   if (!validPassword) {
     throw new AuthenticationError("Invalid Password");
   }
 
   const token = signToken({
-    id: user_id,
+    id: user._id,
     email: user.email,
     username: user.username,
   });

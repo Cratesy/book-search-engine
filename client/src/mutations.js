@@ -12,3 +12,16 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const SIGNUP = gql`
+  mutation Mutation($createUserInput: CreateUserInput!) {
+    createUser(input: $createUserInput) {
+      token
+      user {
+        _id
+        username
+        email
+      }
+    }
+  }
+`;
