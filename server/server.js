@@ -4,6 +4,7 @@ const path = require("path");
 
 const typeDefs = require("./schemas");
 const resolvers = require("./resolvers");
+const context = require("./context");
 
 const db = require("./config/connection");
 
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context,
 });
 
 const startServer = async () => {
