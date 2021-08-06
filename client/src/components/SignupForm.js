@@ -17,7 +17,7 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const [signup, { data, error, loading }] = useMutation(SIGNUP, {
+  const [signup] = useMutation(SIGNUP, {
     onCompleted: (data) => {
       const { token, user } = data.createUser;
       console.log(user);
